@@ -23,7 +23,7 @@ try{
     console.log("db connected");
 }
 
-const port=5000;
+const port= process.env.POR||5000;
 app.listen(port,()=>{
     console.log("app running on http://localhost:"+port);
 })
