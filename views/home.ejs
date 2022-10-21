@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800,300" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+    <title>Bootstrap demo</title>
+
+
+
+</head>
+<style>
+    body {
+        background-color: rgb(248, 248, 248);
+    }
+
+    .carousel-inner {
+        height: 50vh;
+        object-fit: cover;
+    }
+
+    .ind-card img {
+        object-fit: cover;
+    }
+
+    a {
+        text-decoration: none !important;
+    }
+
+    .row>* {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 10px !important;
+
+        margin-top: var(--bs-gutter-y);
+    }
+
+    @media only screen and (max-width: 600px) {
+        .slide {
+            height: 213px;
+        }
+    }
+
+    .home-img {
+        height: 200px;
+        object-fit: cover;
+
+    }
+
+    /*favroit btn*/
+
+    /*favroit btn-end*/
+    select {
+        width: 250px;
+        margin-left: 15px !important;
+    }
+
+    .filter {
+
+
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.7) !important;
+        width: 80%;
+        height: auto;
+        padding: 40px !important;
+        display: flex;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-radius: 10px;
+    }
+
+
+    .select {
+        position: relative;
+        min-width: 200px;
+    }
+
+    .select svg {
+        position: absolute;
+        right: 12px;
+        top: calc(50% - 3px);
+        width: 10px;
+        height: 6px;
+        stroke-width: 2px;
+        stroke: #9098a9;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        pointer-events: none;
+    }
+
+    .select select {
+        -webkit-appearance: none;
+        padding: 7px 40px 7px 12px;
+        width: 250px;
+        border: 1px solid #e8eaed;
+        border-radius: 5px;
+        background: #fff;
+        box-shadow: 0 1px 3px -2px #9098a9;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 16px;
+        transition: all 150ms ease;
+        margin-left: 5px;
+    }
+
+    .select select:required:invalid {
+        color: #5a667f;
+    }
+
+    .select select option {
+        color: #223254;
+    }
+
+    .select select option[value=""][disabled] {
+        display: none;
+    }
+
+    .select select:focus {
+        outline: none;
+        border-color: #07f;
+        box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+    }
+
+    .select select:hover+svg {
+        stroke: #07f;
+    }
+
+    .sprites {
+        position: absolute;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        user-select: none;
+    }
+
+
+
+
+    @media only screen and (max-width: 500px) {
+        .bar_content {
+
+            border-radius: 8px;
+            display: block;
+            width: 44% !important;
+            margin-left: -5px;
+            height: 200px !important;
+            background-color: white;
+            transform: translateX(-1%);
+            /* animation: move 10s linear infinite; */
+            cursor: pointer;
+
+        }
+
+        .bar_content p {
+            margin: 73% 30% !important;
+            font-size: 22px !important;
+        }
+
+
+        .search-btn {
+            width: 100%;
+            text-align: center;
+
+        }
+
+        .search-btn img {
+            margin-left: 0 !important;
+            margin-top: 15px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+
+        .carousel-item img {
+            height: 250px !important;
+            object-fit: cover !important;
+            width: 100% !important;
+        }
+
+
+        .card-winter {
+            width: 96%;
+
+        }
+
+        .card-winter h1 {
+            padding: 0px;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            text-align: center;
+            margin-top: -140px;
+            font-size: 25px !important;
+            margin-left: 0px !important;
+        }
+
+        .filter {
+            width: 100%;
+            border-radius: 0 !important;
+            position: relative !important;
+            top: 219px !important;
+            display: block !important;
+
+        }
+
+        .select select {
+            width: 300px;
+
+            margin-top: 10px;
+        }
+
+        .cat {
+
+            width: 100% !important;
+            overflow: hidden !important;
+            margin-top: 38px;
+
+
+
+        }
+
+        .bar {
+            width: 100% !important;
+            overflow-x: scroll !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+        }
+
+        .winterImg2 {
+            display: block !important;
+        }
+
+        .winterImg {
+            display: none;
+        }
+
+        .card-winter img {
+            height: 390px !important;
+        }
+
+        .card-group {
+            background-color: rgb(242, 243, 244);
+            margin-top: 14em !important;
+        }
+        .searchInput{
+            display: block !important;
+        }
+    }
+
+    
+
+    .cat {
+
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .bar {
+
+        position: relative;
+        display: flex;
+        left: 0px;
+
+        width: 100%;
+        padding: 25px 0px;
+
+        background-color: rgb(242, 243, 244);
+        color: white;
+
+        font-family: Gelasio;
+        font-size: 18px;
+    }
+
+    .bar_content {
+
+        border-radius: 10px;
+        display: block;
+        /* Important to give the content a width */
+        margin-left: 18px;
+        width: 100%;
+        height: 300px;
+        background-color: white;
+        transform: translateX(-1%);
+        /* Animation start out of the screen */
+
+        /* Add the animation */
+        /* animation: move 10s linear infinite; */
+        /* infinite make reapeat the animation indefinitely */
+        cursor: pointer;
+    }
+
+    .bar_content img {
+        padding: 8px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+
+    }
+
+    .layer {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        height: 100%;
+        padding-top: 20px;
+        border-radius: 15px;
+        border: 8px solid white;
+    }
+
+    .bar_content p {
+        position: absolute;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+        font-family: 'Rubik', sans-serif;
+        margin: 50% 40%;
+    }
+
+    .card-winter {
+        width: 90%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 180px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+
+    }
+
+    .card-winter img {
+        padding: 8px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+
+    }
+
+    .card-winter h1 {
+        padding: 25px;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        text-align: center;
+        margin-top: -140px;
+        font-size: 50px;
+        margin-left: 20px;
+    }
+
+    .winterImg2 {
+        display: none;
+    }
+
+    /* .winter-cat{
+        display:flex;
+        position:relative;
+        top: -350px;
+        margin:0 13em;
+        padding:0px;
+        
+    }
+    .winter-cat1{
+        float:left;
+        padding:5px;
+
+    }
+    .subcat1{
+        height:150px;
+        width: 170px;
+        padding:5px;
+
+    }
+    .subcat1 img{
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        border:5px solid white;
+    }
+    .subcat2{
+        height:150px;
+        width: 170px;
+        padding:5px;
+
+    }
+    .subcat2 img{
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        border:5px solid white;
+
+    }
+    .winter-cat2{
+        float:right;
+        padding:5px;
+
+    } */
+
+    /* Create the animation */
+    @keyframes move {
+        to {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+
+<body>
+
+    <%- include('header') %>
+
+
+
+    <form class="d-flex search" role="search" style="justify-content: center; width: 100%;top: 17em; margin: auto; position: absolute;z-index: 99;">
+        <input class="form-control me-2 searchInput" type="search" placeholder="Search" aria-label="Search" id="searchValue" style="width:68%;display:none;">
+        <button class="btn btn-outline-success searchInput" type="submit" id="searchBtn" style="display:none;background-color: rgb(251, 64, 64);color: #fff;border: none;">Search</button>
+    </form>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="z-index: 1;">
+            <!-- <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div> -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/assets/winter3.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/winter2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/winter.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+        <div class="cat">
+            <div class="bar">
+
+                <div class="bar_content" id="nike-bar-content">
+                    <div class="layer"></div>
+                    <p>Nike</p>
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="">
+                </div>
+                <div class="bar_content" id="adidas-bar-content">
+                    <div class="layer"></div>
+                    <p>Adidas</p>
+                    <img src="https://images.unsplash.com/photo-1580980379270-cf860f6db3c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1182&q=80"
+                        alt="">
+                </div>
+                <div class="bar_content" id="puma-bar-content">
+                    <div class="layer"></div>
+                    <p>Puma</p>
+                    <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                        alt="">
+                </div>
+                <div class="bar_content" id="vans-bar-content">
+                    <div class="layer"></div>
+                    <p>Vans</p>
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80"
+                        alt="">
+
+                </div>
+                <div class="bar_content" id="vans-bar-content">
+                    <div class="layer"></div>
+                    <p>Casual's</p>
+                    <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80"
+                        alt="">
+
+                </div>
+
+                <!-- <div class="bar_content">
+                    <div class="layer"></div>
+                    <p>Other Casuals</p>
+                    <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=831&q=80"
+                        alt="">
+
+                </div> -->
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div style="background-color:rgb(242, 243, 244);;width:100%;">
+            <div class="card-winter">
+                <img class="winterImg"
+                    src="https://images.unsplash.com/photo-1486496146582-9ffcd0b2b2b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                    alt="">
+                <img class="winterImg2"
+                    src="/assets/beautiful-woman-winter-portrait-smiling-girl-wearing-warm-clothes-having-fun-hat-sweater-isolated-white-wall.jpg"
+                    alt="">
+                <h1>STAY WARM & DRIPPY THIS WINTER.</h1>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="filter" style="position: absolute; top:277px;z-index: 999;">
+
+            <div class="search-btn" id="reset-btn">
+                <img src="/assets/reset.png" alt="" style="height:40px;margin-left: 10px;cursor: pointer;">
+
+            </div>
+            <div>
+                <label class="select" for="searchGenders">
+                    <select id="searchGenders" required="required">
+                        <option value="" disabled="disabled" selected="selected">Select Gender</option>
+                        <option value="men">Men's</option>
+                        <option value="women">Women's</option>
+                        <option value="unisex">Unisex</option>
+
+                    </select>
+                    <svg>
+                        <use xlink:href="#select-arrow-down"></use>
+                    </svg>
+                </label>
+                <!-- SVG Sprites-->
+                <svg class="sprites">
+                    <symbol id="select-arrow-down" viewbox="0 0 10 6">
+                        <polyline points="1 1 5 5 9 1"></polyline>
+                    </symbol>
+                </svg>
+            </div>
+
+            <div style="">
+                <label class="select" for="searchNormalWear">
+                    <select id="searchNormalWear" required="required">
+                        <option value="" selected="selected" disabled>Normal Wear</option>
+                        <option value="Shirt">Shirt</option>
+                        <option value="T-Shirt">T-Shirt</option>
+                        <option value="Jeans">Jeans</option>
+                        <option value="Chinos">Chinos</option>
+                        <option value="Lycra Pants">Lycra Pants(formal/casual)</option>
+                        <option value="Tracksuits">Tracksuits(TPU/lycra/NS)</option>
+                        <option value="Watches">Watches</option>
+                        <option value="Belts">Belts</option>
+                        <option value="Other normal wear">Other Normal Wear</option>
+                    </select>
+                    <svg>
+                        <use xlink:href="#select-arrow-down"></use>
+                    </svg>
+                </label>
+                <!-- SVG Sprites-->
+                <svg class="sprites">
+                    <symbol id="select-arrow-down" viewbox="0 0 10 6">
+                        <polyline points="1 1 5 5 9 1"></polyline>
+                    </symbol>
+                </svg>
+            </div>
+            <div>
+                <label class="select" for="searchWinterWear">
+                    <select id="searchWinterWear" required="required">
+                        <option value="" disabled="disabled" selected="selected">Winter Wear</option>
+                        <option value="Jackets">Jackets</option>
+                        <option value="Sweaters">Sweaters</option>
+                        <option value="Windcheater">Wincheater</option>
+                        <option value="Fur jacket">Fur jackets</option>
+                        <option value="Denims">Denims</option>
+                        <option value="Lycra sportswear">Lycra sportswear</option>
+                        <option value="Hoodies">Hoodies</option>
+                        <option value="Other winter wear">Other Winter Wear</option>
+
+                    </select>
+                    <svg>
+                        <use xlink:href="#select-arrow-down"></use>
+                    </svg>
+                </label>
+                <!-- SVG Sprites-->
+                <svg class="sprites">
+                    <symbol id="select-arrow-down" viewbox="0 0 10 6">
+                        <polyline points="1 1 5 5 9 1"></polyline>
+                    </symbol>
+                </svg>
+            </div>
+            <div>
+                <label class="select" for="searchShoes">
+                    <select id="searchShoes" required="required">
+                        <option value="" disabled="disabled" selected="selected">Shoes Collections</option>
+                        <option value="Nike shoes">Nike shoes</option>
+                        <option value="Adidas shoes">Adidas shoes</option>
+                        <option value="Puma shoes">Puma shoes</option>
+                        <option value="Jordan shoes">Jordan shoes</option>
+                        <option value="Balenciaga shoes">Balenciaga shoes</option>
+                        <option value="Reebok shoes">Reebok shoes</option>
+                        <option value="Other shoes">Other shoes</option>
+
+                    </select>
+                    <svg>
+                        <use xlink:href="#select-arrow-down"></use>
+                    </svg>
+                </label>
+                <!-- SVG Sprites-->
+                <svg class="sprites">
+                    <symbol id="select-arrow-down" viewbox="0 0 10 6">
+                        <polyline points="1 1 5 5 9 1"></polyline>
+                    </symbol>
+                </svg>
+            </div>
+            <div class="search-btn" id="filter-btn">
+                <img src="/assets/search.png" alt="" style="height:45px;margin-left: 10px;cursor: pointer;">
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="card-group p-5 " style="background-color: rgb(242, 243, 244);">
+            <div class="row d-flex justify-content-center" id="card-parent">
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <%- include('footer') %>
+
+</body>
+
+<script>
+
+</script>
+
+<script>
+    function capital(myString) {
+        firstChar = myString.substring(0, 1);
+        firstChar = firstChar.toUpperCase();
+        tail = myString.substring(1);
+        myString = firstChar + tail;
+        return myString;
+    }
+    $('#searchBtn').click(() => {
+        event.preventDefault();
+        $(".bar").hide();
+        $(".card-winter").hide();
+        showProduct({ searchText: $('#searchValue').val() });
+    })
+
+    $('#filter-btn').click((event) => {
+        event.preventDefault();
+        $(".bar").hide();
+        $(".card-winter").hide();
+        let filterObj = {
+            searchGenders: $('#searchGenders').val(),
+            searchNormalWear: $('#searchNormalWear').val(),
+            searchWinterWear: $('#searchWinterWear').val(),
+            searchShoes: $('#searchShoes').val()
+        }
+        showProduct(filterObj);
+    });
+
+    $("#reset-btn").click((e) => {
+        console.log("clicked");
+        e.preventDefault();
+        $('#searchGenders').val("");
+        $("#searchNormalWear").val("");
+        $("#searchWinterWear").val("");
+        $("#searchShoes").val("");
+        showProduct({});
+    });
+
+    $("#nike-bar-content").click((e) => {
+        e.preventDefault();
+        $(".card-winter").hide();
+        showProduct({ searchShoes: "Nike shoes" });
+    });
+    $("#adidas-bar-content").click((e) => {
+        e.preventDefault();
+        $(".card-winter").hide();
+        showProduct({ searchShoes: "Adidas shoes" });
+    });
+    $("#puma-bar-content").click((e) => {
+        e.preventDefault();
+        $(".card-winter").hide();
+        showProduct({ searchShoes: "Puma shoes" });
+    });
+    $("#vans-bar-content").click((e) => {
+        e.preventDefault();
+        $(".card-winter").hide();
+        showProduct({ searchShoes: "Vans shoes" });
+    });
+
+    function showProduct(searchObj) {
+        $.ajax({
+            url: "<%=baseURL%>/api/allProduct",
+            type: "POST",
+            dataType: "JSON",
+            data: searchObj,
+            async: false,
+            success: function (data) {
+                var product_list = "";
+                $.each(data, (key, value) => {
+                    console.log(value);
+                    product_list += '<div class="card m-2 col-12 col-md-2 ind-card " style="border:none;width:19em;">';
+                    product_list += '';
+                    product_list += '<img  style="border-radius:5px;" src = "<%=baseURL%>/' + value.profileImg + '" class="card-img-top home-img" alt = "..." >';
+                    product_list += '<div class="card-body">';
+                    product_list += '<a href="<%=baseURL%>/productDetailes?productid=' + value._id + '"><h5 class="card-title">' + value.name + ' (' + capital(value.gender) + ')</h5></a>';
+                    product_list += '<p class="card-text">' + value.description.slice(0, 75) + '</p>';
+                    product_list += '<div style="display:flex;" >';
+                    product_list += '<p class="card-text"><small class=" h5 font-weight-bold"><b>₹' + value.price + '</b></small></p>';
+                    product_list += '<a style="margin-left:auto;margin-right:0;" href="#" class="btn btn-primary">Buy now</a>';
+                    product_list += '</div>';
+                    product_list += '</div>';
+                    product_list += '</div>';
+                });
+                $("#card-parent").html(product_list);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
+    showProduct({});
+
+
+
+
+
+</script>
+
+</html>

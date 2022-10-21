@@ -1,0 +1,575 @@
+<!--Important link from https://bootsnipp.com/snippets/XqvZr-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+	<title>Document</title>
+</head>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+	* {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+		font-family: open sans;
+		transition: ease 0.5s;
+		text-decoration: none;
+	}
+
+	body {
+		background-color: rgb(242, 243, 244) !important;
+		padding: 0;
+		margin: 0;
+	}
+
+	.image {
+		height: 400px;
+		width: 550px;
+		padding: 50px;
+
+	}
+
+	.image img {
+		object-fit: cover;
+		width: 650px;
+		height: 673px;
+		border-radius: 15px;
+		border: 7px solid white;
+		cursor: pointer;
+	}
+
+	.sub-img {
+		display: flex;
+		width: 600px;
+	}
+
+	.sub-img img {
+		border-radius: 12px !important;
+		height: 90px;
+		width: 100%;
+		object-fit: cover;
+		margin-left: 15px;
+		margin-top: 10px;
+		;
+	}
+
+	.detailes {
+		display: flex;
+		padding: 0 2em;
+		width: 100%;
+	}
+
+	.all-detailes {
+		color: black;
+		font-family: 'Rubik', sans-serif;
+		margin: 58px 12em;
+
+
+
+	}
+
+	.name {
+		font-weight: bold;
+		font-size: 35px;
+		color: rgb(49, 49, 49);
+
+	}
+
+	.description {
+		color: rgb(139, 139, 139);
+	}
+
+
+	.price {
+		font-weight: bold;
+		font-size: 35px;
+
+	}
+
+	.favorite ,.Buy{
+		background-color: rgb(251, 64, 64);
+		width: 100%;
+		border: 3px solid rgb(251, 64, 64);
+		padding: 10px 20px;
+		border-radius: 5px;
+		color: rgb(255, 255, 255);
+		cursor: pointer;
+	}
+	
+
+	@media only screen and (max-width: 500px) {
+		body {
+			height: 100%;
+		}
+
+		.detailes {
+			flex-direction: column;
+			display: block;
+			padding: 0;
+			width: 100%;
+		}
+
+
+		.image {
+			height: 400px;
+			width: 100%;
+			padding: 0px;
+
+		}
+
+		.image img {
+			object-fit: cover;
+			width: 100%;
+			height: 450px;
+			border-radius: 15px;
+			border: 4px solid white;
+			cursor: pointer;
+		}
+
+		.main {
+			border: none !important;
+			padding: 18px;
+			border-radius: 27px !important;
+
+		}
+
+		.sub-img {
+			display: flex;
+			width: 100%;
+		}
+
+		.sub-img img {
+			border-radius: 12px !important;
+			height: 90px;
+			width: 100%;
+			object-fit: cover;
+			margin-left: 5px;
+			margin-top: 10px;
+			;
+		}
+
+		.all-detailes {
+			color: black;
+
+
+			position: relative;
+			padding: 30px;
+			font-family: 'Rubik', sans-serif;
+			margin: 4em 0 !important;
+			background-color: white;
+			width: 100%;
+			height: 100%;
+			border-radius: 30px 30px 0 0 !important;
+
+		}
+
+		.name {
+			font-weight: bold;
+			font-size: 30px;
+		}
+
+		.description {
+			color: rgb(139, 139, 139);
+			
+		}
+
+
+		.price {
+			font-weight: bold;
+			font-size: 35px;
+
+		}
+
+		.favorite, .Buy {
+			background-color: rgb(251, 64, 64);
+			width: 100%;
+			border: 3px solid rgb(251, 64, 64);
+			padding: 10px 20px;
+			border-radius: 5px;
+			color: rgb(255, 255, 255);
+			cursor: pointer;
+		}
+	}
+
+
+
+
+	.mySlides {
+		/* display: none; */
+		display:block;
+	}
+
+	/* Add a pointer when hovering over the thumbnail images */
+	.cursor {
+		cursor: pointer;
+	}
+
+	/* Next & previous buttons */
+	.prev,
+	.next {
+		display: none;
+		cursor: pointer;
+		position: absolute;
+		top: 40%;
+		width: auto;
+		padding: 16px;
+		margin-top: -50px;
+		color: white;
+		font-weight: bold;
+		font-size: 20px;
+		border-radius: 0 3px 3px 0;
+		user-select: none;
+		-webkit-user-select: none;
+	}
+
+	/* Position the "next button" to the right */
+	.next {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+	}
+
+	/* On hover, add a black background color with a little bit see-through */
+	.prev:hover,
+	.next:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	/* Number text (1/3 etc) */
+	.numbertext {
+		color: #f2f2f2;
+		font-size: 12px;
+		padding: 8px 12px;
+		position: absolute;
+		top: 0;
+	}
+
+	/* Container for image text */
+	.caption-container {
+		text-align: center;
+		background-color: #222;
+		padding: 2px 16px;
+		color: white;
+	}
+
+	.row:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	/* Six columns side by side */
+	.column {
+		float: left;
+		width: 16.66%;
+	}
+
+	/* Add a transparency effect for thumnbail images */
+	.demo {
+		opacity: 0.6;
+	}
+
+	.active,
+	.demo:hover {
+		opacity: 1;
+	}
+</style>
+
+<body>
+	<%- include('header') %>
+
+
+
+
+
+		<div class="container">
+
+
+			<a class="prev" onclick="plusSlides(-1)">❮</a>
+			<a class="next" onclick="plusSlides(1)">❯</a>
+
+			<!-- <div class="caption-container">
+    <p id="caption"></p>
+  </div> -->
+
+
+		</div>
+
+		<div class="detailes">
+			<div class="image">
+				<div class=" imageSlider">
+					<div class="mySlides">
+
+						<img class="img1 main"
+							src="https://wowslider.com/sliders/demo-77/data1/images/field175959_1920.jpg">
+					</div>
+					
+
+				</div>	
+
+			</div>
+
+
+
+			<div class="all-detailes">
+				<p class="name" id="product-name"></p>
+				<p  class="description" style="font-weight: bold ;font-size:21px;"> Description<br><span style="font-weight:400 ;font-size:18px;"  id="product-description"></span> </p>
+				<p class="description"> Posted By : <span id="owner"></span> </p>
+				<p class="description"> Cateogary : <span id="category"></span> (<span id="gender"></span>) </p>
+				
+				<p class="price">₹<span id="product-price"></span></p>
+
+				<iframe width="100%" height="255" style="border-radius: 10px;" id="productVideo" src="">
+				</iframe>
+				<button class="favorite" id="fav">Add to favorite</button>
+				<button class="Buy" style="margin:4px 0">Buy Now</button>
+			</div>
+		</div>
+
+
+</body>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+
+
+<script>
+
+	let product_id = new URL(location.href).searchParams.get("productid");
+	console.log(product_id);
+	// throw "stop execution";
+	if (!product_id) {
+		window.location.href = "<%=baseURL%>"
+	}
+
+	$.ajax({
+		url: "<%=baseURL%>/api/product/" + product_id,
+		type: "POST",
+		dataType: "JSON",
+		data:{
+			email:gCookie
+		},
+		async: false,
+		success: function (data) {
+			console.log(data);
+			$("#product-name").text(data.name);
+			$("#product-price").text(data.price);
+			$("#product-description").text(data.description);
+			$("#owner").text(data.owner);
+			$("#category").text(data.category);
+			$("#gender").text(data.gender);
+			$(".img1").attr("src", "<%=baseURL%>/" + data.profileImg);
+
+			let sliderImg="";
+			$.each(data.img,(key,value)=>{
+				
+				sliderImg+='<div class="mySlides">';
+				sliderImg+='<img src="<%=baseURL%>/'+value+'"">';
+				sliderImg+='</div>';
+				
+			});
+			$(".imageSlider").append(sliderImg);
+			console.log(sliderImg);
+
+			// document.getElementById("imageSlider").html=sliderImg;
+            
+			if (data.video!=undefined && data.video != "") {
+				let video_play_link = "";
+				if (data.video.search('embed') == -1) {
+					video_play_link = data.video.replace('/watch?v=', /embed/);
+				} else {
+					video_play_link = data.video;
+				}
+				console.log(video_play_link)
+				$("#productVideo").attr("src", video_play_link);
+			} else {
+				$("#productVideo").css("display", "none");
+			}
+
+			if (data.isfav == true) {
+				$('#fav').text("Remove from favroite");
+			}
+
+		},
+		error: function (err) {
+			console.log(err);
+		}
+	});
+
+	$('#fav').click(() => {
+		if(!gCookie){
+			alert('Please Login to add to favorites');
+			location.href = "<%= baseURL%>/login";
+			return;
+		}
+
+		$.ajax({
+			url: "<%=baseURL%>/api/fav/" + gCookie,
+			type: "PATCH",
+			dataType: "JSON",
+			data: {
+				"email": gCookie,
+				"productId": product_id
+			},
+			async: false,
+			success: function (data) {
+				console.log(data);
+				location.reload();
+
+			},
+			error: function (err) {
+				console.log(err);
+			}
+		});
+
+	})
+</script>
+
+<script>
+	$(document).ready(function () {
+		var slider = $("#slider");
+		var thumb = $("#thumb");
+		var slidesPerPage = 4; //globaly define number of elements per page
+		var syncedSecondary = true;
+		slider.owlCarousel({
+			items: 1,
+			slideSpeed: 2000,
+			nav: false,
+			autoplay: false,
+			dots: false,
+			loop: true,
+			responsiveRefreshRate: 200
+		}).on('changed.owl.carousel', syncPosition);
+		thumb
+			.on('initialized.owl.carousel', function () {
+				thumb.find(".owl-item").eq(0).addClass("current");
+			})
+			.owlCarousel({
+				items: slidesPerPage,
+				dots: false,
+				nav: true,
+				item: 4,
+				smartSpeed: 200,
+				slideSpeed: 500,
+				slideBy: slidesPerPage,
+				responsiveRefreshRate: 100
+			}).on('changed.owl.carousel', syncPosition2);
+		function syncPosition(el) {
+			var count = el.item.count - 1;
+			var current = Math.round(el.item.index - (el.item.count / 2) - .5);
+			if (current < 0) {
+				current = count;
+			}
+			if (current > count) {
+				current = 0;
+			}
+			thumb
+				.find(".owl-item")
+				.removeClass("current")
+				.eq(current)
+				.addClass("current");
+			var onscreen = thumb.find('.owl-item.active').length - 1;
+			var start = thumb.find('.owl-item.active').first().index();
+			var end = thumb.find('.owl-item.active').last().index();
+			if (current > end) {
+				thumb.data('owl.carousel').to(current, 100, true);
+			}
+			if (current < start) {
+				thumb.data('owl.carousel').to(current - onscreen, 100, true);
+			}
+		}
+		function syncPosition2(el) {
+			if (syncedSecondary) {
+				var number = el.item.index;
+				slider.data('owl.carousel').to(number, 100, true);
+			}
+		}
+		thumb.on("click", ".owl-item", function (e) {
+			e.preventDefault();
+			var number = $(this).index();
+			slider.data('owl.carousel').to(number, 300, true);
+		});
+
+
+		$(".qtyminus").on("click", function () {
+			var now = $(".qty").val();
+			if ($.isNumeric(now)) {
+				if (parseInt(now) - 1 > 0) { now--; }
+				$(".qty").val(now);
+			}
+		})
+		$(".qtyplus").on("click", function () {
+			var now = $(".qty").val();
+			if ($.isNumeric(now)) {
+				$(".qty").val(parseInt(now) + 1);
+			}
+		});
+	});
+
+	var but = document.querySelector(".next");
+	setInterval(function () { but.click(); }, 3000);
+
+	let slideIndex = 1;
+	showSlides(slideIndex);
+
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+		showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+		let i;
+		let slides = document.getElementsByClassName("mySlides");
+		let dots = document.getElementsByClassName("demo");
+		let captionText = document.getElementById("caption");
+		if (n > slides.length) { slideIndex = 1 }
+		if (n < 1) { slideIndex = slides.length }
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		}
+		slides[slideIndex - 1].style.display = "block";
+		dots[slideIndex - 1].className += " active";
+		captionText.innerHTML = dots[slideIndex - 1].alt;
+	}
+
+</script>
+
+</html>
