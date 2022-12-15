@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const product=require("../models/product");
+// const user = require('../models/user');
 const user = require("../models/user");
+//const image = require("../models/image");
 
 exports.favProductList = async (req,res)=>{
     try{
@@ -47,7 +49,7 @@ exports.fav = async(req,res)=>{
 
 exports.productListed = async(req,res)=>{
 
-console.log(req.params.email);
+// console.log(req.params.email);
     try{
         var response2 = await user.findOne({"email":req.params.email});
         
@@ -56,12 +58,42 @@ console.log(req.params.email);
         res.send(err);
     }
 
-     console.log(response2);
-
+     
     try{
        
         var response3 = await product.find({"owner":response2._id});
-        res.json(response3);
+        // var response3 = await product.find({"_id":{ $regex: '.*63598.*' } });
+        let text=req.body.text;
+        // console.log(text);
+        if(text){
+
+            let flag=false;
+            let idObje;
+            response3.forEach((value, index)=>{
+                
+                let id=value._id.toString();
+                
+                if(id.indexOf(text)!=-1){
+                    console.log({value});
+                    flag=true;
+                    idObje=value;
+                    // res.json({value});
+                }
+                
+            });
+            if(flag){
+                res.json({idObje});
+            }else{
+                res.json({});
+            }
+
+            
+        }else{
+            res.json(response3);
+        }
+        // console.log(response3);
+
+        
 
     }catch(err){
         res.send(err);
@@ -80,7 +112,7 @@ exports.createProduct = async(req,res)=>{
     }catch(err){
         res.send(err);
     }
-    
+    console.log(owner);
     let product_data = {
         "name":req.body.name,
         "price":req.body.price,
@@ -110,6 +142,19 @@ exports.imageUpload = async(req,res)=>{
     }
 }
 
+exports.updateDescription = async(req,res)=>{
+    try{
+        let userData = await user.findOne({email:req.body.userEmail});
+        // if(user._id==req.body.productId){
+            let response = await product.findOneAndUpdate({_id:req.params.productId,owner:userData._id},{description:req.body.description});
+            res.json(response);
+        // }
+        
+    }catch(err){
+
+    }
+}
+
 exports.getProduct = async(req,res)=>{
     try{
         let response;
@@ -120,7 +165,7 @@ exports.getProduct = async(req,res)=>{
         if(req.body.searchText!="" && req.body.searchText!=undefined){
             searchText.name={ $regex: '.*' + req.body.searchText + '.*' };
         }
-        
+        console.log(searchText);
         if(req.body.searchGenders!="" && req.body.searchGenders!=undefined){
             genderObj.gender=req.body.searchGenders;
         }
@@ -146,7 +191,7 @@ exports.getProduct = async(req,res)=>{
             $and:[{
                 $or:[{
                   gender:"unisex",
-                },genderObj],searchText}] 
+                },genderObj]},searchText] 
         }).sort({"_id":-1});
         res.json(response);
 
@@ -159,6 +204,7 @@ exports.getProductDetailes = async(req,res)=>{
 
     let id = req.params.Productid;
     let email = req.body.email;
+    console.log(id);
     try{
         let response = await product.findById(id).populate('owner');
         //console.log(response);
@@ -181,7 +227,9 @@ exports.getProductDetailes = async(req,res)=>{
             name:response.name,
             price:response.price,
             description:response.description,
+            productId:response.id,
             owner:response.owner.name,
+            ownerEmail:response.owner.email,
             gender:response.gender,
             category:response.category,
             profileImg:response.profileImg,

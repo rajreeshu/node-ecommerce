@@ -36,6 +36,8 @@ router.post('/api/product',upload.single('profileImg'),apiController.createProdu
 router.get('/imageUpload',userController.imageUpload);
 router.post('/api/imageUpload/:productId',upload.single('img'),apiController.imageUpload);
 
+router.post('/api/updateDescription/:productId',apiController.updateDescription);
+
 // let multipleUpload = upload.fields([{name:'profileImg', maxCount:1},{name:'img2', maxCount:2}]);
 // router.post('/api/productImageUpload:productId',multipleUpload,apiController.createProductImageUpload);
 
@@ -45,16 +47,18 @@ router.get('/login',userController.login);
 router.get('/signUp',userController.signUp);
 router.get('/productListed',userController.productListed);
 router.get('/favProducts',userController.favProducts);
+router.get('/terms',userController.terms);
+router.get('/privacy',userController.privacy);
 
 
-
+ 
 //api routing
 
 router.post('/api/allProduct',apiController.getProduct);
 router.post('/api/product/:Productid',apiController.getProductDetailes);
 router.post('/api/signUp',apiController.signUp);
 router.post('/api/login',apiController.login);
-router.get('/api/productListed/:email',apiController.productListed);
+router.post('/api/productListed/:email',apiController.productListed);
 router.patch('/api/fav/:email',apiController.fav);
 router.get('/api/favProductList/:email',apiController.favProductList);
 

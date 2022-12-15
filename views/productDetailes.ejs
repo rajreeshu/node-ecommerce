@@ -53,7 +53,7 @@
 	.image img {
 		object-fit: cover;
 		width: 650px;
-		height: 673px;
+		height: 483px;
 		border-radius: 15px;
 		border: 7px solid white;
 		cursor: pointer;
@@ -76,12 +76,15 @@
 
 	.detailes {
 		display: flex;
-		padding: 0 2em;
+		padding:50px;
 		width: 100%;
+		margin-top:-50px;
+		min-height:85vh;
 	}
 
 	.all-detailes {
 		color: black;
+
 		font-family: 'Rubik', sans-serif;
 		margin: 58px 12em;
 
@@ -107,16 +110,18 @@
 
 	}
 
-	.favorite ,.Buy{
-		background-color: rgb(251, 64, 64);
+	.favorite,
+	.Buy {
+		background-color: #128c7e;
 		width: 100%;
-		border: 3px solid rgb(251, 64, 64);
+		border: 2px solid #128c7e;
 		padding: 10px 20px;
 		border-radius: 5px;
-		color: rgb(255, 255, 255);
+		color: rgb(255, 255, 255) !important;
 		cursor: pointer;
 	}
 	
+
 
 	@media only screen and (max-width: 500px) {
 		body {
@@ -141,10 +146,11 @@
 		.image img {
 			object-fit: cover;
 			width: 100%;
-			height: 450px;
+			height: 487px;
 			border-radius: 15px;
 			border: 4px solid white;
 			cursor: pointer;
+			margin-top: 49px;
 		}
 
 		.main {
@@ -172,7 +178,7 @@
 		.all-detailes {
 			color: black;
 
-
+			bottom:-64px;
 			position: relative;
 			padding: 30px;
 			font-family: 'Rubik', sans-serif;
@@ -191,7 +197,7 @@
 
 		.description {
 			color: rgb(139, 139, 139);
-			
+
 		}
 
 
@@ -201,14 +207,22 @@
 
 		}
 
-		.favorite, .Buy {
-			background-color: rgb(251, 64, 64);
+		.favorite,
+		.Buy {
+			background-color: #128c7e;
+		width: 100%;
+		border: 2px solid #128c7e;
+		padding: 10px 20px;
+		border-radius: 5px;
+		color: rgb(255, 255, 255) !important;
+		cursor: pointer;
+		}
+
+		#formGoogle {
+			margin-top: 10px;
 			width: 100%;
-			border: 3px solid rgb(251, 64, 64);
-			padding: 10px 20px;
-			border-radius: 5px;
-			color: rgb(255, 255, 255);
-			cursor: pointer;
+			height: 100%;
+			display: none;
 		}
 	}
 
@@ -217,7 +231,7 @@
 
 	.mySlides {
 		/* display: none; */
-		display:block;
+		display: block;
 	}
 
 	/* Add a pointer when hovering over the thumbnail images */
@@ -293,6 +307,24 @@
 	.demo:hover {
 		opacity: 1;
 	}
+
+	.wtsapp img {
+		position: relative;
+
+		height: 55px;
+		width: auto;
+		bottom: 20px;
+		right: 20px;
+
+
+	}
+
+	#formGoogle {
+		margin-top: 10px;
+		width: 100%;
+		height: 24em;
+		display: none;
+	}
 </style>
 
 <body>
@@ -323,9 +355,9 @@
 						<img class="img1 main"
 							src="https://wowslider.com/sliders/demo-77/data1/images/field175959_1920.jpg">
 					</div>
-					
 
-				</div>	
+
+				</div>
 
 			</div>
 
@@ -333,18 +365,52 @@
 
 			<div class="all-detailes">
 				<p class="name" id="product-name"></p>
-				<p  class="description" style="font-weight: bold ;font-size:21px;"> Description<br><span style="font-weight:400 ;font-size:18px;"  id="product-description"></span> </p>
+				<p class="description" style="font-weight: bold ;font-size:21px;">Product Id :  <span
+					style="font-weight:400 ;font-size:18px;" id="product-Id"></span> </p>
+				<p class="description" style="font-weight: bold ;font-size:21px;"> Description 
+					<img style="height:20px;margin-left: 20px;cursor: pointer; display: none;" src="/assets/edit.png" id="editDescriptionBtn" alt="">
+					 <br>
+					 <span style="font-weight:400 ;font-size:18px;" id="product-description"></span> 
+					 <div id="editDescription" style="display: none;" >
+						<textarea cols="30" rows="5"></textarea>
+						<button class="btn btn-warning" id="editDescriptionSave">Update</button>
+					 </div>
+					 
+				</p>
 				<p class="description"> Posted By : <span id="owner"></span> </p>
 				<p class="description"> Cateogary : <span id="category"></span> (<span id="gender"></span>) </p>
-				
+
 				<p class="price">₹<span id="product-price"></span></p>
 
 				<iframe width="100%" height="255" style="border-radius: 10px;" id="productVideo" src="">
 				</iframe>
-				<button class="favorite" id="fav">Add to favorite</button>
-				<button class="Buy" style="margin:4px 0">Buy Now</button>
+				<button class="favorite" id="fav"
+					style="background:none;color:rgb(255, 255, 255);background-color:rgb(35 196 184);border:none;">Add
+					to
+					favorite</button>
+				<button class="Buy" id="order" style="margin:4px 0;"><a style="color:white !important;text-decoration:none;font-weight:bold;" href="http://wa.me/917978756877?text=welcome to TrendMe Store,kindly send us the following details, 
+					Name:  ,
+					Email:   ,
+					Contact:  ,
+					Full Address:  ,
+					Selected Product Id:  ,
+					(you can edit this message also)?">Buy directly from Whatsapp</a></button>
+				<!-- <button class="Buy wtsapp" style="margin:0px 0" > <a
+						href="http://wa.me/918617897583?text=welcome to Orchid,how can we help you?"><img src="w."
+							alt=""></a>Order Now</button> -->
+
+				<!-- <iframe id="formGoogle"
+					src="https://docs.google.com/forms/d/e/1FAIpQLSfr1wFaZOcU2UJWjJEbvxsiJUSFVeroOu9LUZcSHR-2EVnpag/viewform?embedded=true"
+					width="640" height="1033" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
+
+
+
 			</div>
+
+
 		</div>
+
+		<%- include('footer') %>
 
 
 </body>
@@ -367,6 +433,12 @@
 
 <script>
 
+	$(document).ready(function () {
+		$('#order').click(function () {
+			$("#formGoogle").toggle(500);
+		});
+	});
+	// console.log(gCookie)
 	let product_id = new URL(location.href).searchParams.get("productid");
 	console.log(product_id);
 	// throw "stop execution";
@@ -378,34 +450,38 @@
 		url: "<%=baseURL%>/api/product/" + product_id,
 		type: "POST",
 		dataType: "JSON",
-		data:{
-			email:gCookie
+		data: {
+			email: gCookie
 		},
 		async: false,
 		success: function (data) {
+			
 			console.log(data);
 			$("#product-name").text(data.name);
 			$("#product-price").text(data.price);
 			$("#product-description").text(data.description);
+			$("#product-Id").text("TREND"+data.productId.slice(0, 10));
 			$("#owner").text(data.owner);
 			$("#category").text(data.category);
 			$("#gender").text(data.gender);
 			$(".img1").attr("src", "<%=baseURL%>/" + data.profileImg);
+			if(data.ownerEmail==gCookie){
+				$("#editDescriptionBtn").show();
+			}
+			let sliderImg = "";
+			$.each(data.img, (key, value) => {
 
-			let sliderImg="";
-			$.each(data.img,(key,value)=>{
-				
-				sliderImg+='<div class="mySlides">';
-				sliderImg+='<img src="<%=baseURL%>/'+value+'"">';
-				sliderImg+='</div>';
-				
+				sliderImg += '<div class="mySlides">';
+				sliderImg += '<img src="<%=baseURL%>/' + value + '"">';
+				sliderImg += '</div>';
+
 			});
 			$(".imageSlider").append(sliderImg);
 			console.log(sliderImg);
 
 			// document.getElementById("imageSlider").html=sliderImg;
-            
-			if (data.video!=undefined && data.video != "") {
+
+			if (data.video != undefined && data.video != "") {
 				let video_play_link = "";
 				if (data.video.search('embed') == -1) {
 					video_play_link = data.video.replace('/watch?v=', /embed/);
@@ -427,9 +503,39 @@
 			console.log(err);
 		}
 	});
+	
+	$("#editDescriptionBtn").click((e)=>{
+		e.preventDefault();
+		$("#editDescription textarea").val($("#product-description").text());
+		$("#editDescription").toggle(500);
+		$("#product-description").toggle();
+	});
+
+	$("#editDescriptionSave").click((e)=>{
+		e.preventDefault();
+		let value=$("#editDescription textarea").val();
+		$.ajax({
+			url: "<%=baseURL%>/api/updateDescription/"+product_id,
+			type: "POST",
+			dataType:"json",
+			data:{
+				userEmail: gCookie,
+				description:value
+			},
+			success: (data)=>{
+				alert("Description updated successfully!!");
+				location.reload();
+				console.log(data);
+			},
+			error:(error)=>{
+
+			}
+		});
+	});
 
 	$('#fav').click(() => {
-		if(!gCookie){
+
+		if (!gCookie) {
 			alert('Please Login to add to favorites');
 			location.href = "<%= baseURL%>/login";
 			return;
@@ -448,6 +554,7 @@
 				console.log(data);
 				location.reload();
 
+
 			},
 			error: function (err) {
 				console.log(err);
@@ -455,6 +562,9 @@
 		});
 
 	})
+
+
+
 </script>
 
 <script>
@@ -539,7 +649,7 @@
 	});
 
 	var but = document.querySelector(".next");
-	setInterval(function () { but.click(); }, 3000);
+	setInterval(function () { but.click(); }, 1000);
 
 	let slideIndex = 1;
 	showSlides(slideIndex);

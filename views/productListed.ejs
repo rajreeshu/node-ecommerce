@@ -7,52 +7,117 @@
     <title>Bootstrap demo</title>
 
 </head>
+<style>
+    .row>* {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 10px !important;
+
+        margin-top: var(--bs-gutter-y);
+    }
+</style>
 
 <body>
 
     <%- include('header') %>
 
-        <div class="card-group p-5 ">
+    <form class="d-flex" role="search" style="width: 50%;margin:auto;background:none;padding:20px;">
+        <input class="form-control me-2" type="search" placeholder="Search your product" aria-label="Search"
+            id="search-input">
+        <button class="btn btn-outline-success" type="submit" id="search-btn"
+            style="border:2px solid rgb(35 196 184);color:rgb(70, 70, 70)">Search</button>
+
+    </form>
+
+        <div class="card-group p-5 " style="background-color:rgb(242, 243, 244);">
+            
             <div class="row d-flex justify-content-center" id="card-parent">
 
             </div>
         </div>
 
-
+        <%- include('footer') %>
 
 
 </body>
 
 <script>
+
+
+
+
     //console.log(gCookie);
-    $.ajax({
-        url: "<%=baseURL%>/api/productListed/" + gCookie,
-        type: "GET",
-        dataType: "JSON",
-        async: false,
-        success: function (data) {
-            console.log(data);
-            var product_list = "";
-            $.each(data, (key, value) => {
-                console.log(key, value);
-              
-                product_list += '<div class="card m-2 col-2">';
-                product_list += '<img src = "<%=baseURL%>/assets/dsa.jpg" class="card-img-top" alt = "..." >';
-                product_list += '<div class="card-body">';
-                product_list += '<a href="<%=baseURL%>/productDetailes?productid=' + value._id + '"><h5 class="card-title">' + value.name + '</h5></a>';
-                product_list += '<p class="card-text">' + value.description + '</p>';
-                product_list += '<p class="card-text"><small class=" font-weight-bold">₹' + value.price + '</small></p>';
-                product_list += '</div>';
-                product_list += '</div>';
+    function getProduct(search="") {
+        $.ajax({
+            url: "<%=baseURL%>/api/productListed/" + gCookie,
+            type: "POST",
+            dataType: "JSON",
+            data:{text:search},
+            async: false,
+            success: function (data) {
+                console.log(data);
+                var product_list = "";
+                $.each(data, (key, value) => {
+                    // console.log(key, value);
 
-            });
-            $("#card-parent").html(product_list);
+                    product_list += '<div class="card m-2 col-12 col-md-2 ind-card " style="border:none;width:17em;">';
+                    product_list += '';
+                    product_list += '<img style="border-radius:5px;" src = "<%=baseURL%>/' + value.profileImg + '" class="card-img-top home-img" alt = "..." >';
+                    product_list += '<div class="card-body">';
+                    product_list += '<a href="<%=baseURL%>/productDetailes?productid=' + value._id + '"><h5 class="card-title">' + value.name + '</h5></a>';
+                    product_list += '<p class="card-text">' + value.description.slice(0, 75) + '</p>';
+                    product_list += '<p id="product-id" class="card-text">TREND' + value._id.slice(0, 10) + '</p>';
+                    product_list += '<div style="display:flex;" >';
+                    product_list += '<p class="card-text"><small class=" h5 font-weight-bold"><b>₹' + value.price + '</b></small></p>';
+                    product_list += '<a style="margin-left:auto;margin-right:0;" href="#" class="btn btn-primary">Buy now</a>';
+                    product_list += '</div>';
 
-        },
-        error: function (err) {
-            console.log(err);
-        }
-    });
+                    product_list += '</div>';
+                    product_list += '</div>';
+
+                });
+                $("#card-parent").html(product_list);
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    };
+    getProduct();
+
+
+    //     document.querySelector('#search-btn').addEventListener('click', (e)=>{
+    //         e.preventDefault();
+    //         filterList();
+    //     });
+
+    // function filterList() {
+    //     let searchInput = document.querySelector('#search-input').value;
+    //     let elements = document.querySelectorAll('#product-id');
+    //     let cards= document.querySelectorAll('.card-group')
+    //     const listId = document.querySelectorAll('#product-id');
+
+    //     elements.forEach((element, index) => {
+    //         let text = item.textContent;
+    //         if (element.innerText.includes(searchInput.toUpperCase())) {
+    //             cards[index].classList.remove("hide");
+    //         }
+    //         else {
+    //             cards[index].classList.add("hide");
+
+    //         }
+    //     });
+    // }
+
+    $("#search-btn").click((e) => {
+        e.preventDefault();
+        let search = $("#search-input").val();
+        search = search.substring(search.length - 10);
+        getProduct(search);
+    })
+
 </script>
 
 </html>

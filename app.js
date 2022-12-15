@@ -23,9 +23,8 @@ try{
     console.log("db connected");
 }
 
-const port= process.env.PORT||5000;
+const port=5000;
 app.listen(port,()=>{
     console.log("app running on http://localhost:"+port);
 })
-// app.locals.baseURL ="http://localhost:"+port;
-app.locals.baseURL="https://ancient-shore-34215.herokuapp.com";
+app.locals.baseURL ="http://localhost:"+port;

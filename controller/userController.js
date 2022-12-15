@@ -25,3 +25,9 @@ exports.productListed = (req,res)=>{
 exports.favProducts = (req,res)=>{
     res.render('favProducts');
 }
+exports.terms =(req,res)=>{
+    res.render('terms');
+}
+exports.privacy =(req,res)=>{
+    res.render('privacy');
+}

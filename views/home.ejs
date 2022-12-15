@@ -15,7 +15,7 @@
 </head>
 <style>
     body {
-        background-color: rgb(248, 248, 248);
+        background-color: rgb(232, 231, 231);
     }
 
     .carousel-inner {
@@ -51,6 +51,9 @@
         object-fit: cover;
 
     }
+    .carousel-inner {
+        height: auto !important;
+    }
 
     /*favroit btn*/
 
@@ -62,17 +65,18 @@
 
     .filter {
 
-
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.7) !important;
-        width: 80%;
-        height: auto;
-        padding: 40px !important;
-        display: flex;
-        left: 0;
-        right: 0;
-        margin: auto;
-        border-radius: 10px;
+        z-index: 10 !important;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    width: 83%;
+    border-radius: 18px !important;
+    height: auto;
+    padding: 30px !important;
+    display: flex;
+    top: 373px !important;
+    left: 0;
+    right: 0;
+    margin: auto;
     }
 
 
@@ -204,15 +208,20 @@
             width: 100%;
             border-radius: 0 !important;
             position: relative !important;
-            top: 219px !important;
-            display: block !important;
+            top: 37px !important;
+            display: none ;
 
         }
 
         .select select {
-            width: 300px;
+            width: 100%;
 
             margin-top: 10px;
+        }
+
+        .select {
+            position: relative;
+            min-width: 90% !important;
         }
 
         .cat {
@@ -246,14 +255,28 @@
 
         .card-group {
             background-color: rgb(242, 243, 244);
-            margin-top: 14em !important;
+            /* margin-top: 14em !important; */
         }
-        .searchInput{
+        .spacing{
+            height:14em;
+        }
+
+        .searchInput {
             display: block !important;
         }
+
+        .ind-card {
+            width: 100% !important;
+        }
+        .srch1{
+        display: none !important;
+    }
+    .srch2{
+        display:block !important;
+    }
     }
 
-    
+
 
     .cat {
 
@@ -407,6 +430,24 @@
             transform: translateX(-100%);
         }
     }
+
+
+    .w-100 {
+        width: 100% !important;
+        height: 29em !important;
+        object-fit: cover !important;
+    }
+
+    .carousel-inner {
+        height: 57vh;
+        object-fit: cover;
+    }
+    .srch1{
+        display: block;
+    }
+    .srch2{
+        display:none;
+    }
 </style>
 
 <body>
@@ -415,10 +456,19 @@
 
 
 
-    <form class="d-flex search" role="search" style="justify-content: center; width: 100%;top: 17em; margin: auto; position: absolute;z-index: 99;">
-        <input class="form-control me-2 searchInput" type="search" placeholder="Search" aria-label="Search" id="searchValue" style="width:68%;display:none;">
-        <button class="btn btn-outline-success searchInput" type="submit" id="searchBtn" style="display:none;background-color: rgb(251, 64, 64);color: #fff;border: none;">Search</button>
-    </form>
+
+
+
+        <form class="d-flex search" role="search"
+            style="justify-content: center; width: 100%;top: 17em; margin: auto; position: absolute;z-index: 99;">
+            <input class="form-control me-2 searchInput" type="search" placeholder="Search" aria-label="Search"
+                id="searchValueMobile" style="width:58%;display:none;">
+            <button class="btn btn-outline-success searchInput"  id="searchBtnMobile"
+                style="display:none;background-color: rgb(251, 64, 64);color: #fff;border: none;">Search</button>
+            <button class="btn btn-outline-success searchInput"  id="btnFilter"
+                style="display:none;background-color: rgb(251, 64, 64);border:1px solid white;margin-left: 2px;"><img
+                    style="height:25px;width: auto;" src="/assets/filter.png" alt=""></button>
+        </form>
 
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="z-index: 1;">
             <!-- <div class="carousel-indicators">
@@ -433,9 +483,11 @@
                 <div class="carousel-item active">
                     <img src="/assets/winter3.jpg" class="d-block w-100" alt="...">
                 </div>
+               
                 <div class="carousel-item">
                     <img src="/assets/winter2.jpg" class="d-block w-100" alt="...">
                 </div>
+                
                 <div class="carousel-item">
                     <img src="/assets/winter.jpg" class="d-block w-100" alt="...">
                 </div>
@@ -452,89 +504,7 @@
             </button>
         </div>
 
-
-        <div class="cat">
-            <div class="bar">
-
-                <div class="bar_content" id="nike-bar-content">
-                    <div class="layer"></div>
-                    <p>Nike</p>
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                        alt="">
-                </div>
-                <div class="bar_content" id="adidas-bar-content">
-                    <div class="layer"></div>
-                    <p>Adidas</p>
-                    <img src="https://images.unsplash.com/photo-1580980379270-cf860f6db3c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1182&q=80"
-                        alt="">
-                </div>
-                <div class="bar_content" id="puma-bar-content">
-                    <div class="layer"></div>
-                    <p>Puma</p>
-                    <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                        alt="">
-                </div>
-                <div class="bar_content" id="vans-bar-content">
-                    <div class="layer"></div>
-                    <p>Vans</p>
-                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80"
-                        alt="">
-
-                </div>
-                <div class="bar_content" id="vans-bar-content">
-                    <div class="layer"></div>
-                    <p>Casual's</p>
-                    <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80"
-                        alt="">
-
-                </div>
-
-                <!-- <div class="bar_content">
-                    <div class="layer"></div>
-                    <p>Other Casuals</p>
-                    <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=831&q=80"
-                        alt="">
-
-                </div> -->
-
-            </div>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-        <div style="background-color:rgb(242, 243, 244);;width:100%;">
-            <div class="card-winter">
-                <img class="winterImg"
-                    src="https://images.unsplash.com/photo-1486496146582-9ffcd0b2b2b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                    alt="">
-                <img class="winterImg2"
-                    src="/assets/beautiful-woman-winter-portrait-smiling-girl-wearing-warm-clothes-having-fun-hat-sweater-isolated-white-wall.jpg"
-                    alt="">
-                <h1>STAY WARM & DRIPPY THIS WINTER.</h1>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="filter" style="position: absolute; top:277px;z-index: 999;">
+        <div class="filter" id="filterCat" style="position: absolute; top:80px;z-index: 999;">
 
             <div class="search-btn" id="reset-btn">
                 <img src="/assets/reset.png" alt="" style="height:40px;margin-left: 10px;cursor: pointer;">
@@ -635,8 +605,11 @@
                     </symbol>
                 </svg>
             </div>
-            <div class="search-btn" id="filter-btn">
-                <img src="/assets/search.png" alt="" style="height:45px;margin-left: 10px;cursor: pointer;">
+            <div class="search-btn " id="filter-btn">
+                <img class="srch1" src="/assets/search.png" alt="" style="height:45px;margin-left: 10px;cursor: pointer;" />
+                <button class="btn btn-outline-success searchInput srch2" type="submit" 
+                style="display:none;background-color: rgb(251, 64, 64);color: #fff;border: none;width: 70%;padding: 10px;margin:15px auto;">Search</button>
+               
 
             </div>
 
@@ -648,27 +621,85 @@
 
 
 
+        <div class="cat">
+            <div class="bar">
+
+                <div class="bar_content" id="nike-bar-content">
+                    <div class="layer"></div>
+                    <p>Nike</p>
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="">
+                </div>
+                <div class="bar_content" id="adidas-bar-content">
+                    <div class="layer"></div>
+                    <p>Adidas</p>
+                    <img src="https://images.unsplash.com/photo-1580980379270-cf860f6db3c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1182&q=80"
+                        alt="">
+                </div>
+                <div class="bar_content" id="puma-bar-content">
+                    <div class="layer"></div>
+                    <p>Puma</p>
+                    <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                        alt="">
+                </div>
+                <div class="bar_content" id="vans-bar-content">
+                    <div class="layer"></div>
+                    <p>Vans</p>
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80"
+                        alt="">
+
+                </div>
+                <div class="bar_content" id="other-bar-content">
+                    <div class="layer"></div>
+                    <p>Casual's</p>
+                    <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80"
+                        alt="">
+
+                </div>
+
+                <!-- <div class="bar_content">
+                    <div class="layer"></div>
+                    <p>Other Casuals</p>
+                    <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=831&q=80"
+                        alt="">
+
+                </div> -->
+
+            </div>
+
+        </div>
+
+
+        <div style="background-color:rgb(242, 243, 244);;width:100%;">
+            <div class="card-winter">
+                <img class="winterImg"
+                    src="https://images.unsplash.com/photo-1486496146582-9ffcd0b2b2b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                    alt="">
+                <img class="winterImg2"
+                    src="/assets/girl-will-show-winter-who-boss-confident-stylish-selfassured-attractive-woman-with-curly-hair.jpg"
+                    alt="">
+                <h1>STAY WARM & DRIPPY THIS WINTER.</h1>
+            </div>
+        </div>
+<div class="spacing"></div>
         <div class="card-group p-5 " style="background-color: rgb(242, 243, 244);">
             <div class="row d-flex justify-content-center" id="card-parent">
-
-
-
-
-
-
             </div>
         </div>
-
-
         <%- include('footer') %>
 
 </body>
 
-<script>
 
-</script>
 
 <script>
+ 
+    $("#btnFilter").click((e)=>{
+        e.preventDefault();
+        $("#filterCat").slideToggle(1000);
+    });
+
+
     function capital(myString) {
         firstChar = myString.substring(0, 1);
         firstChar = firstChar.toUpperCase();
@@ -676,12 +707,25 @@
         myString = firstChar + tail;
         return myString;
     }
+
     $('#searchBtn').click(() => {
         event.preventDefault();
         $(".bar").hide();
         $(".card-winter").hide();
+        $(".cat").hide();
+        $(".spacing").hide();
         showProduct({ searchText: $('#searchValue').val() });
-    })
+    });
+
+    $('#searchBtnMobile').click(() => {
+        event.preventDefault();
+        $(".bar").hide();
+        $(".card-winter").hide();
+        $(".cat").hide();
+        $(".spacing").hide();
+        console.log( $('#searchValueMobile').val());
+        showProduct({ searchText: $('#searchValueMobile').val() });
+    });
 
     $('#filter-btn').click((event) => {
         event.preventDefault();
@@ -708,23 +752,35 @@
 
     $("#nike-bar-content").click((e) => {
         e.preventDefault();
+        console.log("nike")
         $(".card-winter").hide();
+        $(".spacing").hide();
         showProduct({ searchShoes: "Nike shoes" });
     });
     $("#adidas-bar-content").click((e) => {
         e.preventDefault();
         $(".card-winter").hide();
+        $(".spacing").hide();
         showProduct({ searchShoes: "Adidas shoes" });
     });
     $("#puma-bar-content").click((e) => {
         e.preventDefault();
         $(".card-winter").hide();
+        $(".spacing").hide();
         showProduct({ searchShoes: "Puma shoes" });
     });
     $("#vans-bar-content").click((e) => {
         e.preventDefault();
         $(".card-winter").hide();
+        $(".spacing").hide();
         showProduct({ searchShoes: "Vans shoes" });
+    });
+    
+    $("#other-bar-content").click((e) => {
+        e.preventDefault();
+        $(".card-winter").hide();
+        $(".spacing").hide();
+        showProduct({ searchShoes: "Other shoes" });
     });
 
     function showProduct(searchObj) {
@@ -738,15 +794,16 @@
                 var product_list = "";
                 $.each(data, (key, value) => {
                     console.log(value);
-                    product_list += '<div class="card m-2 col-12 col-md-2 ind-card " style="border:none;width:19em;">';
+                    product_list += '<div class="card m-2 col-12 col-md-2 ind-card " style="border:none;width:17em;">';
                     product_list += '';
                     product_list += '<img  style="border-radius:5px;" src = "<%=baseURL%>/' + value.profileImg + '" class="card-img-top home-img" alt = "..." >';
                     product_list += '<div class="card-body">';
                     product_list += '<a href="<%=baseURL%>/productDetailes?productid=' + value._id + '"><h5 class="card-title">' + value.name + ' (' + capital(value.gender) + ')</h5></a>';
                     product_list += '<p class="card-text">' + value.description.slice(0, 75) + '</p>';
+                    product_list += '<p class="card-text">TREND' + value._id.slice(0, 10) + '</p>';
                     product_list += '<div style="display:flex;" >';
                     product_list += '<p class="card-text"><small class=" h5 font-weight-bold"><b>₹' + value.price + '</b></small></p>';
-                    product_list += '<a style="margin-left:auto;margin-right:0;" href="#" class="btn btn-primary">Buy now</a>';
+                    // product_list += '<a style="margin-left:auto;margin-right:0;" href="#" class="btn btn-primary">Buy now</a>';
                     product_list += '</div>';
                     product_list += '</div>';
                     product_list += '</div>';
@@ -760,6 +817,8 @@
     }
 
     showProduct({});
+
+
 
 
 
