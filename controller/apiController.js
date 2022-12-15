@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const product=require("../models/product");
+const product=require("../models/Product");
 // const user = require('../models/user');
-const user = require("../models/user");
+const user = require("../models/User");
 //const image = require("../models/image");
 
 exports.favProductList = async (req,res)=>{
