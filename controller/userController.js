@@ -1,5 +1,5 @@
 exports.home = (req,res)=>{
-    res.render('home');
+    res.render('home.ejs');
 }
 
 exports.productDetailes = (req,res)=>{
