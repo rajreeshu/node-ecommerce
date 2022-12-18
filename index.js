@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 //ejs
-// app.set('views', './views');
+// app.set('views', './views'); //
 app.set('view engine', 'ejs');
 //json
 app.use(express.json());
