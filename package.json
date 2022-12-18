@@ -1,4 +1,11 @@
 {
+  "name":"ecommerce",
+  "version": "1.0.0",
+  "description": "For Hosting",
+  "main": "app.js",
+  "engines": {
+    "node":"16.x"
+  },
   "dependencies": {
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
