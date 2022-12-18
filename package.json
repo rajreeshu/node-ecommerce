@@ -2,9 +2,9 @@
   "name":"ecommerce",
   "version": "1.0.0",
   "description": "For Hosting",
-  "main": "app.js",
+  "main": "index.js",
   "engines": {
-    "node":"16.x"
+    "node":"14.x"
   },
   "dependencies": {
     "dotenv": "^16.0.1",
@@ -15,6 +15,6 @@
     "nodemon": "^2.0.19"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node index.js"
   }
 }
