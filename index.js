@@ -7,7 +7,7 @@ app.set('view engine', 'ejs');
 //json
 app.use(express.json());
 app.use(express.urlencoded({ extended:false}));
-app.use('/assets',express.static('assets')); //this should be above routes to prevent assets file from going to 404 error.
+app.use('/assets',express.static(path.join(__dirname,'assets'))); //this should be above routes to prevent assets file from going to 404 error.
 //
 const router = require('./router');
 app.use("/",router)
