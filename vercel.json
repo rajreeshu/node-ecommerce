@@ -17,11 +17,11 @@
       },
       {
           "src": "/",
-          "dest": "public/index.html"
+          "dest": "assets/index.html"
       },
       {
           "src": "/(.+)",
-          "dest": "public/$1"
+          "dest": "asstes/$1"
       }
     ]
   }
